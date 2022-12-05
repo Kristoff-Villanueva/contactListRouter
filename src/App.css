@@ -1,0 +1,46 @@
+.titleBar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.titleBar > h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.titleBar > p {
+	margin: 0;
+	padding-top: 0.5em;
+}
+
+.comps {
+	display: flex;
+	justify-content: space-around;
+}
+
+.contacts-view > h3 {
+	text-align: center;
+}
+
+.table {
+	width: 500px;
+	display: grid;
+	grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+}
+
+.submit-btn {
+	margin-top: 1em;
+}
+
+.firstLink {
+	margin-right: 20px;
+}
+
+.table > p {
+	margin-bottom: 5px;
+}
+
+/* * {
+	border: 1px dashed red;
+} */
