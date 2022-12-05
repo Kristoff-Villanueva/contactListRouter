@@ -41,6 +41,14 @@
 	margin-bottom: 5px;
 }
 
+.action-icon {
+	filter: grayscale(100%);
+}
+
+.action-icon:hover {
+	filter: grayscale(0);
+}
+
 /* * {
 	border: 1px dashed red;
 } */

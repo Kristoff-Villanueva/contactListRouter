@@ -10,8 +10,8 @@ const ContactsView = (props) => {
 					<p className="secondLink">{el.contactNumber}</p>
 					<p className="thirdLink">{el.fullName}</p>
 					<p>
-						<span>📝</span>
-						<span>🗑️</span>
+						<span className="action-icon">📝</span>
+						<span className="action-icon">❌</span>
 					</p>
 				</div>
 				<hr />
