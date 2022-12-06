@@ -36,6 +36,25 @@
 
 .submit-btn {
 	margin-top: 1em;
+	background-color: aquamarine;
+}
+
+.submit-btn:hover {
+	margin-top: 1em;
+	background-color: paleturquoise;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.edit-btn {
+	margin-top: 1em;
+	background-color: lightsalmon;
+}
+
+.edit-btn:hover {
+	margin-top: 1em;
+	background-color: palevioletred;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	color: white;
 }
 
 .firstLink {

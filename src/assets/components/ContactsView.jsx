@@ -4,11 +4,17 @@ const ContactsView = (props) => {
 	const contactsArr = props.contactList;
 
 	function handleDelete(e) {
-		// console.log(contactsArr);
 		const deleteEl = e.target.id;
 		const newContactsArr = [...contactsArr];
 		newContactsArr.splice(deleteEl, 1);
 		props.setContactList(newContactsArr);
+	}
+
+	function handleEdit(e) {
+		const editEl = e.target.id.slice(5);
+		props.setEditContact(contactsArr[editEl]);
+		props.setEditing((prevState) => !prevState);
+		props.setEditIndex(editEl);
 	}
 
 	const contactElements = contactsArr.map((el) => {
@@ -20,7 +26,13 @@ const ContactsView = (props) => {
 					<p className="secondLink">{el.contactNumber}</p>
 					<p className="thirdLink">{el.email}</p>
 					<p>
-						<span className="action-icon">📝</span>
+						<span
+							id={`edit-${contactsArr.indexOf(el)}`}
+							onClick={handleEdit}
+							className="action-icon"
+						>
+							📝
+						</span>
 						<span
 							id={contactsArr.indexOf(el)}
 							onClick={handleDelete}

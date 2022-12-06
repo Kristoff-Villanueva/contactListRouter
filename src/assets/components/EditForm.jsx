@@ -1,16 +1,9 @@
 import { useState } from "react";
 
-const Header = (props) => {
-	// const [contactList, setContactList] = useState([]);
-	// const [newContact, setNewContact] = useState({
-	// 	fullName: "",
-	// 	contactNumber: "",
-	// 	email: "",
-	// });
-
+const EditForm = (props) => {
 	function handleChange(e) {
 		const { name, value } = e.target;
-		props.setNewContact((prevDetails) => {
+		props.setEditContact((prevDetails) => {
 			return {
 				...prevDetails,
 				[name]: value,
@@ -23,12 +16,18 @@ const Header = (props) => {
 		props.setContactList((prevContact) => {
 			return [props.newContact, ...prevContact];
 		});
-		props.setNewContact({ fullName: "", contactNumber: "", email: "" });
+
+		const newArr = [...props.contactList];
+		newArr[props.editIndex] = props.editContact;
+		props.setContactList(newArr);
+
+		props.setEditContact({ fullName: "", contactNumber: "", email: "" });
+		props.setEditing(false);
 	}
 
 	return (
 		<form onSubmit={handleSubmit} className="form">
-			<h3>Enter Contact Details</h3>
+			<h3>Edit Contact Details</h3>
 			<label htmlFor="fullName" className="form-label">
 				Full Name
 			</label>
@@ -39,7 +38,7 @@ const Header = (props) => {
 				autoComplete="off"
 				placeholder="Enter Full Name"
 				id="fullName"
-				value={props.newContact.fullName}
+				value={props.editContact.fullName}
 				name="fullName"
 			/>
 			<label htmlFor="contactNumber" className="form-label">
@@ -52,7 +51,7 @@ const Header = (props) => {
 				autoComplete="off"
 				placeholder="Enter Contact Number"
 				id="contactNumber"
-				value={props.newContact.contactNumber}
+				value={props.editContact.contactNumber}
 				name="contactNumber"
 			/>
 			<label htmlFor="email" className="form-label">
@@ -65,14 +64,14 @@ const Header = (props) => {
 				autoComplete="off"
 				placeholder="Enter Email Address"
 				id="email"
-				value={props.newContact.email}
+				value={props.editContact.email}
 				name="email"
 			/>
-			<button className="submit-btn" type="submit">
-				Submit
+			<button className="edit-btn" type="submit">
+				Save Changes
 			</button>
 		</form>
 	);
 };
 
-export default Header;
+export default EditForm;
