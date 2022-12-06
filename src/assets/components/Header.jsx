@@ -36,6 +36,7 @@ const Header = (props) => {
 				type="text"
 				onChange={handleChange}
 				required
+				autoComplete="off"
 				placeholder="Enter Full Name"
 				id="fullName"
 				value={newContact.fullName}
@@ -48,6 +49,7 @@ const Header = (props) => {
 				type="tel"
 				onChange={handleChange}
 				required
+				autoComplete="off"
 				placeholder="Enter Contact Number"
 				id="contactNumber"
 				value={newContact.contactNumber}
@@ -60,6 +62,7 @@ const Header = (props) => {
 				type="text"
 				onChange={handleChange}
 				required
+				autoComplete="off"
 				placeholder="Enter Email Address"
 				id="email"
 				value={newContact.email}

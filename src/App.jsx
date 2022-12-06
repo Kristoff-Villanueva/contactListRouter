@@ -4,7 +4,12 @@ import "./App.css";
 import ContactsView from "./assets/components/ContactsView";
 
 function App() {
-	const [contactList, setContactList] = useState([]);
+	const [contactList, setContactList] = useState([
+		{ fullName: "Kris", contactNumber: "0916271840", email: "kris@gmail.com" },
+		{ fullName: "Sai", contactNumber: "111222", email: "sai@gmail.com" },
+		{ fullName: "Mig", contactNumber: "09456", email: "mig@gmail.com" },
+		{ fullName: "Che", contactNumber: "02130", email: "che@gmail.com" },
+	]);
 
 	return (
 		<div className="App">
@@ -15,7 +20,10 @@ function App() {
 			<hr />
 			<div className="comps">
 				<Header setContactList={setContactList} />
-				<ContactsView contactList={contactList} />
+				<ContactsView
+					setContactList={setContactList}
+					contactList={contactList}
+				/>
 			</div>
 		</div>
 	);
