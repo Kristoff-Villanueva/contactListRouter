@@ -1,3 +1,13 @@
+.logo {
+	width: 100px;
+	margin-right: 1em;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+}
+
 .titleBar {
 	display: flex;
 	flex-direction: column;
@@ -48,6 +58,7 @@
 .edit-btn {
 	margin-top: 1em;
 	background-color: lightsalmon;
+	padding: 5px 10px;
 }
 
 .edit-btn:hover {
@@ -55,6 +66,10 @@
 	background-color: palevioletred;
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 	color: white;
+}
+
+.cancel-btn {
+	padding: 5px 10px;
 }
 
 .firstLink {
@@ -88,7 +103,7 @@
 	z-index: 1;
 	max-width: 50px;
 	color: white;
-	font-size: 12px;
+	font-size: 0.8em;
 	background-color: #192733;
 	border-radius: 10px;
 	padding: 5px 10px 5px 10px;

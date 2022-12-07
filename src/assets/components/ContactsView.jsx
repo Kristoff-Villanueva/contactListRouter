@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const ContactsView = (props) => {
 	const [search, setSearch] = useState("");
@@ -19,6 +19,7 @@ const ContactsView = (props) => {
 		props.setEditContact(contactsArr[editEl]);
 		props.setEditing((prevState) => !prevState);
 		props.setEditIndex(editEl);
+		console.log(editRef);
 	}
 
 	const contactElements = contactsArr
@@ -61,12 +62,12 @@ const ContactsView = (props) => {
 
 	return (
 		<div className="contacts-view">
-			<h3 onClick={() => console.log(searchArr)}>All Contacts</h3>
+			<h3>All Contacts</h3>
 			<input
 				type="search"
 				placeholder="Search contacts"
 				className="searchBar"
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => setSearch(e.target.value.toLowerCase())}
 			/>
 			<div className="table">
 				<h4 className="zeroLink">Id</h4>

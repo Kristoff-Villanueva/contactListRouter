@@ -67,9 +67,14 @@ const EditForm = (props) => {
 				value={props.editContact.email}
 				name="email"
 			/>
-			<button className="edit-btn" type="submit">
-				Save Changes
-			</button>
+			<div className="btn-div">
+				<button className="edit-btn" type="submit">
+					Save Changes
+				</button>
+				<button className="cancel-btn" onClick={() => props.setEditing(false)}>
+					Cancel
+				</button>
+			</div>
 		</form>
 	);
 };

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "./assets/components/Header";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import ContactsView from "./assets/components/ContactsView";
 import EditForm from "./assets/components/EditForm";
@@ -28,9 +29,12 @@ function App() {
 
 	return (
 		<div className="App">
-			<div className="titleBar">
-				<h1 onClick={() => console.log(editContact)}>Contact List</h1>
-				<p>A CRUD-app using ReactJS</p>
+			<div className="header">
+				<img src="src\assets\images\contact.png" alt="" className="logo" />
+				<div className="titleBar">
+					<h1>Contact List</h1>
+					<p>A CRUD-app using ReactJS</p>
+				</div>
 			</div>
 			<hr />
 			<div className="comps">
