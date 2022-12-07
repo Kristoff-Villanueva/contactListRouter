@@ -66,7 +66,7 @@
 }
 
 .action-icon {
-	filter: grayscale(100%);
+	filter: grayscale(50%);
 }
 
 .action-icon:hover {
@@ -74,6 +74,52 @@
 	cursor: pointer;
 }
 
+.action-icon:hover .tooltip-text {
+	visibility: visible;
+}
+
+.edit-icon {
+	position: relative;
+}
+
+.tooltip-text {
+	visibility: hidden;
+	position: absolute;
+	z-index: 1;
+	max-width: 50px;
+	color: white;
+	font-size: 12px;
+	background-color: #192733;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	top: 20px;
+}
+
+.action-icon:hover .tooltip-text {
+	visibility: visible;
+}
+
+.edit-icon {
+	position: relative;
+}
+
+.searchForm {
+	display: flex;
+	position: relative;
+}
+.searchBar {
+	width: 95%;
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.search-btn {
+	position: absolute;
+	right: 1.5em;
+	cursor: pointer;
+}
 /* * {
 	border: 1px dashed red;
 } */
+
+/* search-bar */

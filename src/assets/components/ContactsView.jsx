@@ -1,6 +1,10 @@
-import React from "react";
+import { useState } from "react";
 
 const ContactsView = (props) => {
+	const [search, setSearch] = useState("");
+
+	console.log(search);
+
 	const contactsArr = props.contactList;
 
 	function handleDelete(e) {
@@ -17,39 +21,53 @@ const ContactsView = (props) => {
 		props.setEditIndex(editEl);
 	}
 
-	const contactElements = contactsArr.map((el) => {
-		return (
-			<div key={el.contactNumber}>
-				<div className="table" key={el.contactNumber}>
-					<p className="zeroLink">{contactsArr.indexOf(el) + 1}</p>
-					<p className="firstLink">{el.fullName}</p>
-					<p className="secondLink">{el.contactNumber}</p>
-					<p className="thirdLink">{el.email}</p>
-					<p>
-						<span
-							id={`edit-${contactsArr.indexOf(el)}`}
-							onClick={handleEdit}
-							className="action-icon"
-						>
-							📝
-						</span>
-						<span
-							id={contactsArr.indexOf(el)}
-							onClick={handleDelete}
-							className="action-icon"
-						>
-							❌
-						</span>
-					</p>
+	const contactElements = contactsArr
+		.filter((item) => {
+			return search.toLowerCase() === ""
+				? item
+				: item.fullName.toLowerCase().includes(search);
+		})
+		.map((el) => {
+			return (
+				<div key={el.contactNumber}>
+					<div className="table" key={el.contactNumber}>
+						<p className="zeroLink">{contactsArr.indexOf(el) + 1}</p>
+						<p className="firstLink">{el.fullName}</p>
+						<p className="secondLink">{el.contactNumber}</p>
+						<p className="thirdLink">{el.email}</p>
+						<p>
+							<span
+								id={`edit-${contactsArr.indexOf(el)}`}
+								onClick={handleEdit}
+								className="action-icon edit-icon"
+							>
+								📝
+								<span className="tooltip-text">Edit</span>
+							</span>
+							<span
+								id={contactsArr.indexOf(el)}
+								onClick={handleDelete}
+								className="action-icon"
+							>
+								🗑️
+								<span className="tooltip-text">Delete</span>
+							</span>
+						</p>
+					</div>
+					<hr />
 				</div>
-				<hr />
-			</div>
-		);
-	});
+			);
+		});
 
 	return (
 		<div className="contacts-view">
-			<h3>All Contacts</h3>
+			<h3 onClick={() => console.log(searchArr)}>All Contacts</h3>
+			<input
+				type="search"
+				placeholder="Search contacts"
+				className="searchBar"
+				onChange={(e) => setSearch(e.target.value)}
+			/>
 			<div className="table">
 				<h4 className="zeroLink">Id</h4>
 				<h4 className="firstLink">Full Name</h4>
